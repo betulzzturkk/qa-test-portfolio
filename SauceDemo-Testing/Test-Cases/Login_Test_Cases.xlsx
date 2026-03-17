@@ -1,0 +1,15 @@
+import pandas as pd
+
+# Test Case başlıkları
+test_cases = [
+    {"Test ID": "TC01", "Test Scenario": "Successful Login", "Steps": "1. Go to login page\n2. Enter username: standard_user\n3. Enter password: secret_sauce\n4. Click Login", "Expected Result": "User is redirected to products page", "Actual Result": "", "Status": "Not Executed", "Priority": "High"},
+    {"Test ID": "TC02", "Test Scenario": "Wrong Password", "Steps": "1. Enter valid username\n2. Enter wrong password\n3. Click Login", "Expected Result": "Error message displayed", "Actual Result": "", "Status": "Not Executed", "Priority": "High"},
+    {"Test ID": "TC03", "Test Scenario": "Empty Fields", "Steps": "1. Leave username blank\n2. Leave password blank\n3. Click Login", "Expected Result": "Validation message shown", "Actual Result": "", "Status": "Not Executed", "Priority": "Medium"},
+    {"Test ID": "TC04", "Test Scenario": "Locked User", "Steps": "1. Username: locked_out_user\n2. Password: secret_sauce\n3. Click Login", "Expected Result": "Access denied message", "Actual Result": "", "Status": "Not Executed", "Priority": "High"}
+]
+
+# DataFrame oluşturma
+df = pd.DataFrame(test_cases)
+
+# Excel dosyası olarak kaydetme
+df.to_excel("Login_Test_Cases.xlsx", index=False)
