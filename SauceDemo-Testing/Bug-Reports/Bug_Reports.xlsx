@@ -1,0 +1,15 @@
+import pandas as pd
+
+# Bug Reports örnekleri
+bug_reports = [
+    {"Bug ID": "Bug01", "Test Scenario": "Wrong Password Login", "Steps": "1. Go to login page\n2. Enter username: standard_user\n3. Enter password: wrong_password\n4. Click Login", "Expected Result": "Error message displayed", "Actual Result": "Username and password do not match any user in this service", "Severity": "High", "Status": "Open", "Screenshot": "Bug01_LoginWrongPassword.png"},
+    {"Bug ID": "Bug02", "Test Scenario": "Empty Fields Login", "Steps": "1. Leave username & password blank\n2. Click Login", "Expected Result": "Validation message", "Actual Result": "Username is required / Password is required", "Severity": "Medium", "Status": "Open", "Screenshot": "Bug02_EmptyFieldsLogin.png"},
+    {"Bug ID": "Bug03", "Test Scenario": "Locked Out User", "Steps": "1. Username: locked_out_user\n2. Password: secret_sauce\n3. Click Login", "Expected Result": "Access denied", "Actual Result": "Sorry, this user has been locked out.", "Severity": "High", "Status": "Open", "Screenshot": "Bug03_LockedOutUser.png"},
+    {"Bug ID": "Bug04", "Test Scenario": "Checkout Without Products", "Steps": "1. Empty shopping cart\n2. Click Checkout", "Expected Result": "Checkout blocked / warning", "Actual Result": "Warning appears", "Severity": "Medium", "Status": "Open", "Screenshot": "Bug04_CheckoutWithoutProducts.png"}
+]
+
+# DataFrame oluşturma
+df_bugs = pd.DataFrame(bug_reports)
+
+# Excel dosyası olarak kaydetme
+df_bugs.to_excel("Bug_Reports.xlsx", index=False)
