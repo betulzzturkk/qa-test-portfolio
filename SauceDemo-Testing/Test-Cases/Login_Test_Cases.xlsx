@@ -1,15 +1,21 @@
+
 import pandas as pd
 
-# Test Case başlıkları
-test_cases = [
+# Tüm test case'ler (Login + Sepet + Checkout)
+test_cases_full = [
     {"Test ID": "TC01", "Test Scenario": "Successful Login", "Steps": "1. Go to login page\n2. Enter username: standard_user\n3. Enter password: secret_sauce\n4. Click Login", "Expected Result": "User is redirected to products page", "Actual Result": "", "Status": "Not Executed", "Priority": "High"},
     {"Test ID": "TC02", "Test Scenario": "Wrong Password", "Steps": "1. Enter valid username\n2. Enter wrong password\n3. Click Login", "Expected Result": "Error message displayed", "Actual Result": "", "Status": "Not Executed", "Priority": "High"},
     {"Test ID": "TC03", "Test Scenario": "Empty Fields", "Steps": "1. Leave username blank\n2. Leave password blank\n3. Click Login", "Expected Result": "Validation message shown", "Actual Result": "", "Status": "Not Executed", "Priority": "Medium"},
-    {"Test ID": "TC04", "Test Scenario": "Locked User", "Steps": "1. Username: locked_out_user\n2. Password: secret_sauce\n3. Click Login", "Expected Result": "Access denied message", "Actual Result": "", "Status": "Not Executed", "Priority": "High"}
+    {"Test ID": "TC04", "Test Scenario": "Locked User", "Steps": "1. Username: locked_out_user\n2. Password: secret_sauce\n3. Click Login", "Expected Result": "Access denied message", "Actual Result": "", "Status": "Not Executed", "Priority": "High"},
+    {"Test ID": "TC05", "Test Scenario": "Add Product to Cart", "Steps": "1. Login successful\n2. Browse products page\n3. Click 'Add to Cart' on a product", "Expected Result": "Product appears in shopping cart", "Actual Result": "", "Status": "Not Executed", "Priority": "High"},
+    {"Test ID": "TC06", "Test Scenario": "Remove Product from Cart", "Steps": "1. Product added to cart\n2. Go to shopping cart\n3. Click 'Remove' button", "Expected Result": "Product removed from cart", "Actual Result": "", "Status": "Not Executed", "Priority": "High"},
+    {"Test ID": "TC07", "Test Scenario": "Checkout with Valid Data", "Steps": "1. Add product(s) to cart\n2. Go to checkout\n3. Fill First Name, Last Name, Postal Code\n4. Click Continue\n5. Click Finish", "Expected Result": "Order completed successfully", "Actual Result": "", "Status": "Not Executed", "Priority": "High"},
+    {"Test ID": "TC08", "Test Scenario": "Checkout with Empty Fields", "Steps": "1. Add product(s) to cart\n2. Go to checkout\n3. Leave First Name, Last Name, Postal Code blank\n4. Click Continue", "Expected Result": "Validation message for required fields", "Actual Result": "", "Status": "Not Executed", "Priority": "Medium"},
+    {"Test ID": "TC09", "Test Scenario": "Checkout without Products", "Steps": "1. Empty shopping cart\n2. Click Checkout", "Expected Result": "Checkout blocked / warning message", "Actual Result": "", "Status": "Not Executed", "Priority": "Medium"}
 ]
 
 # DataFrame oluşturma
-df = pd.DataFrame(test_cases)
+df_full = pd.DataFrame(test_cases_full)
 
 # Excel dosyası olarak kaydetme
-df.to_excel("Login_Test_Cases.xlsx", index=False)
+df_full.to_excel("QA_Test_Cases_Full.xlsx", index=False)
